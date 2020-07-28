@@ -53,7 +53,9 @@ public class ArchViewModel extends ViewModel {
 
                     @Override
                     public void onComplete() {
-
+                        if (!disposable.isDisposed()) {
+                            disposable.dispose();
+                        }
                     }
                 });
     }
