@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ArchitectureExample</string>
     <string name="increase_btn_text">Start</string>
+    <string name="hello_world_text">Hello World!</string>
 </resources>
