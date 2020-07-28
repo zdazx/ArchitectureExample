@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ArchitectureExample</string>
+    <string name="increase_btn_text">Start</string>
+</resources>
