@@ -33,17 +33,17 @@ public class ArchViewModel extends ViewModel {
         Observable.interval(1, TimeUnit.SECONDS)
                 .map(Long::intValue)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(Schedulers.io())
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         disposable = d;
-                        compositeDisposable.add(disposable);
+                        compositeDisposable.add(d);
                     }
 
                     @Override
                     public void onNext(Integer integer) {
-                        number.setValue(integer);
+                        number.postValue(integer);
                     }
 
                     @Override
@@ -52,11 +52,7 @@ public class ArchViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onComplete() {
-                        if (!disposable.isDisposed()) {
-                            disposable.dispose();
-                        }
-                    }
+                    public void onComplete() { }
                 });
     }
 
