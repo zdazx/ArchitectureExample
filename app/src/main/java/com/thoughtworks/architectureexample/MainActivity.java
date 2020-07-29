@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
     private ArchViewModel archViewModel;
+    private Button increaseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView textView = findViewById(R.id.increase_text_view);
-        Button increaseBtn = findViewById(R.id.increase_btn);
+        increaseBtn = findViewById(R.id.increase_btn);
         increaseBtn.setOnClickListener(view -> startIncrease());
 
         archViewModel = new ViewModelProvider(this).get(ArchViewModel.class);
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startIncrease() {
+        increaseBtn.setEnabled(false);
         archViewModel.increase();
     }
 }
